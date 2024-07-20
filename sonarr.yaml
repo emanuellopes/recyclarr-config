@@ -9,6 +9,7 @@
 ###################################################################################################
 
 # Instance Definition: https://recyclarr.dev/wiki/yaml/config-reference/basic/
+# yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
 sonarr:
   sonarr:
     base_url: !secret sonarr_url
@@ -24,6 +25,15 @@ sonarr:
       - template: sonarr-quality-definition-series
       - template: sonarr-v4-quality-profile-web-2160p
       - template: sonarr-v4-custom-formats-web-2160p
+
+        # disable upgrade quality
+    quality_profiles:
+      - name: WEB-1080p
+        upgrade:
+          allowed: false
+      - name: WEB-2160p
+        upgrade:
+          allowed: false
 
 # Custom Formats: https://recyclarr.dev/wiki/yaml/config-reference/custom-formats/
     custom_formats:

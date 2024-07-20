@@ -8,6 +8,7 @@
 ###################################################################################################
 
 # Instance Definition: https://recyclarr.dev/wiki/yaml/config-reference/basic/
+# yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
 radarr:
   radarr:
     base_url: !secret radarr_url
@@ -30,6 +31,21 @@ radarr:
       # uhd-bluray-web
       - template: radarr-quality-profile-uhd-bluray-web
       - template: radarr-custom-formats-uhd-bluray-web
+
+    # disable upgrade quality
+    quality_profiles:
+      - name: HD Bluray + WEB
+        upgrade:
+          allowed: false
+      - name: Remux + WEB 1080p
+        upgrade:
+          allowed: false
+      - name: Remux + WEB 2160p
+        upgrade:
+          allowed: false
+      - name: UHD Bluray + WEB
+        upgrade:
+          allowed: false
 
     custom_formats:
       #Start hd-bluray-web
